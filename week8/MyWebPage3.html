@@ -1,0 +1,93 @@
+<html>
+  <link rel="stylesheet" type="text/css" href="mainstyle.css">
+  <head>
+      <title> Contact Info</title>
+      <script> 
+        function displayMessage() {
+          alert(message);
+        }
+        var message = "please correct Highlighted fields before submitting form.";
+        function getData()
+            {
+                var name = document.getElementById("txtName").value;
+                var email = document.getElementById("txtEmail").value;
+                if (name === "" || email === "")
+                {
+                    window.alert("Please enter a name and email address.");
+                    return;
+                }
+                else
+                {
+                    window.alert("name: " + name + " Email: " + email);
+                }
+            }
+        function checkForm()
+        {
+            var name = document.getElementById("txtName").value;
+            var email = document.getElementById("txtEmail").value;
+            var tandc = document.getElementById("tandc");
+            var result = true;
+            if(name == "")
+            {
+                document.getElementById("txtName").style.backgroundColor = "red";
+                result = false;
+            }
+            else
+            {
+                document.getElementById("txtName").style.backgroundColor = "white";
+            }
+            if (tandc && !tandc.checked) 
+            {
+              var checkboxLabel = tandc.parentNode; // Get the parent element of the checkbox
+              checkboxLabel.style.backgroundColor = "red"; // Apply background color to the label
+              result = false;
+            } 
+            else 
+            {
+              var checkboxLabel = tandc.parentNode; // Get the parent element of the checkbox
+              checkboxLabel.style.backgroundColor = "white"; // Reset background color to white
+            }
+            if(email == "")
+            {
+                document.getElementById("txtEmail").style.backgroundColor = "red";
+                result = false;
+            }
+            else
+            {
+                document.getElementById("txtEmail").style.backgroundColor = "white";
+            }
+            if(result == false)
+            {
+                document.getElementById("finalResult").innerHTML = "<font color='red'>Please correct the highlighted fields before submitting the form.</font>";
+            }
+            else
+            {
+                document.getElementById("finalResult").innerHTML = "";
+            }
+            return result;
+        }
+      </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+          <td style="font-size: larger;">Name</td>
+          <td><input type="text" id="txtName"></td>
+      </tr>
+      <tr>
+          <td style="font-size: larger;">Email</td>
+          <td><input type="text" id="txtEmail"></td>
+      </tr>
+      <tr>
+          <td><input type="checkbox" id="tandc"></td>
+          <td style="font-size: larger;">I agree to the terms and conditions</td>
+      </tr>
+      <tr>
+          <td colspan="2"><button id="btnSubmit" onClick="checkForm(); getData()">Submit</button></td>
+      </tr>
+  </table>
+  <div id="finalResult"></div>
+  <a href="index.html"  id="bigger" class="blue" style="text-decoration:none;">Home</a>
+  <a href="contact.html" id="bigger" class="blue" style="text-decoration:none; position: absolute; right: 10px;">Math Game!!</a>
+  </body>
+</html>

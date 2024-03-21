@@ -1,0 +1,57 @@
+<html>
+    <link rel="stylesheet" type="text/css" href="mainstyle.css">
+    <title>Math Game</title>
+    <head>
+        <script>
+          var actualAnswer;
+          var correctAnswers = 0;
+          var totalQuestions = 0;
+          function printQuestion() {
+            var number1 = Math.floor(Math.random() * 10);
+            var number2 = Math.floor(Math.random() * 10);
+            actualAnswer = number1 + number2;
+            document.getElementById("theQuestion").innerHTML = "What is " + number1 + "+" + number2 + "?";
+            document.getElementById("totalCorrect").innerHTML = "Total Correct: " + (correctAnswers / totalQuestions * 100).toFixed(2) + "%";
+            document.getElementById("tcorrect").innerHTML = "Total Correct: " + correctAnswers + " out of " + totalQuestions;
+
+          }
+          function checkAnswer() {
+            var answer = document.getElementById("txtAnswer").value;
+            if (answer == actualAnswer) {
+              document.getElementById("finalResult").innerHTML = "Correct!";
+              correctAnswers++;
+              totalQuestions++;
+            } else {
+              document.getElementById("finalResult").innerHTML = "Try Again!";
+              totalQuestions++;
+            }
+          }
+          function ifTen() {
+            if (totalQuestions == 10) {
+              document.getElementById("finalResult").innerHTML = "You have completed 10 questions!";
+              correctAnswers = 0;
+              totalQuestions = 0;
+            }
+          }
+        </script>
+      </head>
+      
+      <body onload="printQuestion();">
+        <div id="theQuestion"></div>
+        <table>
+          <tr>
+            <td>Your answer</td>
+            <td><input type="text" id="txtAnswer"></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button id="btnSubmit" onClick="checkAnswer(); printQuestion(); ifTen();">Submit</button></td>
+          </tr>
+          
+        </table>
+        <div id="finalResult"></div>
+        <div id="totalCorrect"></div>
+        <div id="tcorrect"></div>
+        <a href="index.html"  id="bigger" class="blue" style="text-decoration:none;">Home</a>
+        <a href="MyWebPage3.html" id="bigger" class="blue" style="text-decoration:none; position: absolute; right: 10px;">Back to page 3</a>
+    </body>
+</html>
