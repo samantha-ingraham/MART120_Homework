@@ -1,0 +1,1 @@
+For my final project I would like to animate a picture where bees visit flowers, hopping from one to the next. I could also make the flowers dance a bit. and maybe some additional scenery, like a tree or something in the background.
