@@ -47,8 +47,7 @@ function drawFlower(x, y) {
   circle(x, y + 15, 20); 
   // Draw center
   fill(255, 255, 0); // Yellow color for center
-  circle(x, y, 25);
-  
+  circle(x, y, 25); 
 }
 
 function setup() {
